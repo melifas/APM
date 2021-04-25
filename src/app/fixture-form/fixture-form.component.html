@@ -1,0 +1,39 @@
+<form #formsData = "ngForm"  (ngSubmit)="onSubmit(formsData.value)">
+  <div class="container">
+    <div class="form-group">
+        <label class="label label-default" for="leagues">Choose a league:</label>
+    </div>
+
+    <div class="form-group">
+        <select class="form-control" ngModel  name="league" id="league">
+            <option value="1">Super League</option>
+            <option value="2">Premier League</option>
+            <option value="3">English Premier League</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input class="form-control" ngModel  type="date"  id="date" placeholder="dd-mm-yyyy" name="date" value="date" />
+    </div>
+    <button id="Search" type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
+
+<div class='table-responsive'>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Home Team</th>
+        <th>Away Team</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let fixture of json'>
+        <th>{{fixture.homeTeam}}</th>
+        <th>{{fixture.awayTeam}}</th>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
